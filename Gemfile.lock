@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     authorule (0.0.1)
-      activesupport
+      activesupport (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -37,7 +37,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
+  activerecord (~> 4.0)
   authorule!
   bundler (~> 1.3)
   rake
