@@ -16,10 +16,6 @@ module Authorule
       end
     end
 
-    initializer 'authorule.add_models_path' do |app|
-      ActiveSupport::Dependencies.autoload_paths << File.expand_path('../app/models', __FILE__)
-    end
-
   end
 
 end
