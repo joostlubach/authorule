@@ -1,6 +1,16 @@
 module Authorule
 
-  # A UI permission rule. Each rule allows or denies the permission holder one permission.
+  # A permission rule. Each rule allows or denies the permission holder one permission.
+  #
+  # == Usage
+  #
+  # Create a model class, and include this mixin into it, e.g.
+  #
+  #   class PermissionRule < ActiveRecord::Base
+  #     include Authorule::Rule
+  #
+  #     belongs_to :user
+  #   end
   #
   # @see RuleBase
   module Rule
