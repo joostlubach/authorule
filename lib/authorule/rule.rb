@@ -26,6 +26,9 @@ module Authorule
         validates_length_of :kind, :maximum => 20
         validates_length_of :name, :maximum => 80
         validates_length_of :action, :maximum => 20, :allow_blank => true
+
+        # Make sure to coerce a blank value for action into an absolute nil.
+        before_validation { self.action = nil if self.action.blank? }
       end
 
     ######
