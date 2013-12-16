@@ -8,6 +8,7 @@ module Authorule
   end
 
   autoload :Permission
+  autoload :Rule
   autoload :RuleBase
   autoload :PermissionAccessors
   autoload :PermissionHolder
