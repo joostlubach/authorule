@@ -1,3 +1,7 @@
+## 1.0.1
+
+* Bug fix: rule creators now properly available on class.
+
 ## 1.0.0
 
 * V1 Release

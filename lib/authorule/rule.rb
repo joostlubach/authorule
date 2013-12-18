@@ -34,56 +34,60 @@ module Authorule
     ######
     # Rule creation accessors
 
-      # Builds an allow rule for the given kind and name.
-      def self.allow(kind, name, attributes = {})
-        new attributes.merge(:kind => kind, :name => name, :allow => true)
-      end
+      module ClassMethods
 
-      # Creates an allow rule for the given kind and name.
-      def self.allow!(kind, name, attributes = {})
-        allow(kind, name, attributes).save
-      end
+        # Builds an allow rule for the given kind and name.
+        def allow(kind, name, attributes = {})
+          new attributes.merge(:kind => kind, :name => name, :allow => true)
+        end
 
-      # Builds a deny rule for the given kind and name.
-      def self.deny(kind, name, attributes = {})
-        new attributes.merge(:kind => kind, :name => name, :allow => false)
-      end
+        # Creates an allow rule for the given kind and name.
+        def allow!(kind, name, attributes = {})
+          allow(kind, name, attributes).save
+        end
 
-      # Creates a deny rule for the given kind and name.
-      def self.deny!(kind, name, attributes = {})
-        deny(kind, name, attributes).save
-      end
+        # Builds a deny rule for the given kind and name.
+        def deny(kind, name, attributes = {})
+          new attributes.merge(:kind => kind, :name => name, :allow => false)
+        end
 
-      # Builds an 'allow all' rule.
-      #
-      # == Examples
-      #
-      #   Rule.allow_all              # => kind 'all', name 'all'
-      #   Rule.allow_all(:resource)   # => kind 'resource', name 'all'
-      def self.allow_all(kind = :all, attributes = {})
-        new attributes.merge(:kind => kind, :name => 'all', :allow => true)
-      end
+        # Creates a deny rule for the given kind and name.
+        def deny!(kind, name, attributes = {})
+          deny(kind, name, attributes).save
+        end
 
-      # Creates an 'allow all' rule.
-      # @see .allow_all
-      def self.allow_all!(kind = :all, attributes = {})
-        allow_all(kind, attributes).save
-      end
+        # Builds an 'allow all' rule.
+        #
+        # == Examples
+        #
+        #   Rule.allow_all              # => kind 'all', name 'all'
+        #   Rule.allow_all(:resource)   # => kind 'resource', name 'all'
+        def allow_all(kind = :all, attributes = {})
+          new attributes.merge(:kind => kind, :name => 'all', :allow => true)
+        end
 
-      # Creates a 'deny all' rule.
-      #
-      # == Examples
-      #
-      #   Rule.deny_all              # => kind 'all', name 'all'
-      #   Rule.deny_all(:resource)   # => kind 'resource', name 'all'
-      def self.deny_all(kind = :all, attributes = {})
-        new attributes.merge(:kind => kind, :name => 'all', :allow => false)
-      end
+        # Creates an 'allow all' rule.
+        # @see .allow_all
+        def allow_all!(kind = :all, attributes = {})
+          allow_all(kind, attributes).save
+        end
 
-      # Creates an 'deny all' rule.
-      # @see .deny_all
-      def self.deny_all!(kind = :all, attributes = {})
-        allow_all(kind, attributes).save
+        # Creates a 'deny all' rule.
+        #
+        # == Examples
+        #
+        #   Rule.deny_all              # => kind 'all', name 'all'
+        #   Rule.deny_all(:resource)   # => kind 'resource', name 'all'
+        def deny_all(kind = :all, attributes = {})
+          new attributes.merge(:kind => kind, :name => 'all', :allow => false)
+        end
+
+        # Creates an 'deny all' rule.
+        # @see .deny_all
+        def deny_all!(kind = :all, attributes = {})
+          allow_all(kind, attributes).save
+        end
+
       end
 
     ######
